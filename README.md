@@ -14,30 +14,54 @@ To write a program to implement the Decision Tree Regressor Model for Predicting
 4. calculate Mean square error,data prediction and r2. 
 
 ## Program:
-
 ```
 /*
 Program to implement the Decision Tree Regressor Model for Predicting the Salary of the Employee.
 Developed by: Mohamed Anas O.I
 RegisterNumber:  212223110028
 */
+```
 
+```
 import pandas as pd
 data=pd.read_csv("Salary.csv")
 data.head()
 
+```
+### Output:
+![Screenshot 2024-10-16 091229](https://github.com/user-attachments/assets/3c65f4c5-7941-4559-be4a-0f7f1c0868cd)
+
+
+```
 data.info()
+```
+### Output:
+![Screenshot 2024-10-16 091236](https://github.com/user-attachments/assets/4974b3a0-97db-4594-8cf9-cde236e6b3e2)
 
+```
 data.isnull().sum()
+```
+### Output:
+![Screenshot 2024-10-16 091241](https://github.com/user-attachments/assets/388ab852-0eb2-4aac-bd62-e340a8d08eb4)
 
+```
 from sklearn.preprocessing import LabelEncoder
 le=LabelEncoder()
 data["Position"]=le.fit_transform(data["Position"])
 data.head()
+```
+### Output:
+![Screenshot 2024-10-16 091247](https://github.com/user-attachments/assets/1eeafd53-10fb-4070-86f7-c7d44d9e4f13)
 
+```
 x=data[["Position","Level"]]
 x.head()
+```
+### Output:
+![Screenshot 2024-10-16 091253](https://github.com/user-attachments/assets/e3079201-e042-4f57-b2db-79a20af4739f)
 
+
+```
 y=data[["Salary"]]
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test=train_test_split(x,y,test_size=0.2,random_state=2)
@@ -48,39 +72,24 @@ y_pred=dt.predict(x_test)
 from sklearn import metrics
 mse=metrics.mean_squared_error(y_test, y_pred)
 mse
-
-r2=metrics.r2_score(y_test,y_pred)
-r2
-
-dt.predict([[5,6]])
-
 ```
-
-### Head:
-![Screenshot 2024-10-16 091229](https://github.com/user-attachments/assets/3c65f4c5-7941-4559-be4a-0f7f1c0868cd)
-
-### Info:
-![Screenshot 2024-10-16 091236](https://github.com/user-attachments/assets/4974b3a0-97db-4594-8cf9-cde236e6b3e2)
-
-
-### Sum:
-![Screenshot 2024-10-16 091241](https://github.com/user-attachments/assets/388ab852-0eb2-4aac-bd62-e340a8d08eb4)
-
-
-### Head:
-![Screenshot 2024-10-16 091253](https://github.com/user-attachments/assets/e3079201-e042-4f57-b2db-79a20af4739f)
-
-
-### Mean Square Error:
+### Output:
 ![Screenshot 2024-10-16 091300](https://github.com/user-attachments/assets/e1831eea-cabf-48fe-af83-15fb2d7f6d69)
 
-
-### R2:
+```
+r2=metrics.r2_score(y_test,y_pred)
+r2
+```
+### Output:
 ![Screenshot 2024-10-16 091306](https://github.com/user-attachments/assets/4fb7831a-d0cb-4baa-8ba1-9b1534c0601a)
 
-
-### Predicted Value:
+```
+dt.predict([[5,6]])
+```
+### Output:
 ![Screenshot 2024-10-16 091313](https://github.com/user-attachments/assets/1e023a03-87ff-405e-9656-39e02fac1d49)
+
+
 
 
 
